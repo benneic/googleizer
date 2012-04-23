@@ -7,10 +7,16 @@ try:
     import simplejson as json
 except ImportError:
     import json
-import poster
 import time
 import urllib
-import httplib2
+
+# Setup.py loads this file to get the package's version number, but these
+# dependencies might not exist yet.
+try:
+    import httplib2
+    import poster
+except:
+    pass
 
 import maps
 
