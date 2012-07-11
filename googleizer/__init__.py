@@ -83,7 +83,7 @@ class Requester(object):
           if isinstance(value, unicode):
             params[key] = value.encode("utf-8")
         if self.api_key:
-            params['key'] = self.api_key
+            params['client'] = self.api_key
         return params
 
     def _request(self, url, data=None):
@@ -156,7 +156,8 @@ class Endpoint(object):
     def __init__(self, requester):
         """Stores the request function for retrieving data"""
         self.requester = requester
-        self.endpoint = ''
+
+    endpoint = ''
 
     def _expanded_path(self, path=None):
         """Gets the expanded path, given this endpoint"""

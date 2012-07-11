@@ -19,6 +19,7 @@ class Maps(object):
     self._base_requester = Requester(API_ENDPOINT, api_key=api_key, secret_key=secret_key, headers=headers)
     # add each endpoint
     self.geocode = self.Geocode(self._base_requester)
+    self.places = self.Places(self._base_requester)
 
   class Geocode(Endpoint):
     """The Google Geocoding API"""
