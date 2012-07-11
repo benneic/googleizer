@@ -13,7 +13,7 @@ API_ENDPOINT = 'http://maps.googleapis.com/maps/api'
 class Maps(object):
   """Google Maps V3 Handler"""
 
-  def __init__(self, api_key=None):
+  def __init__(self, api_key=None, secret_key=None):
     """Sets up the api object"""
     # set up base requester
     self._base_requester = Requester(API_ENDPOINT, api_key)
@@ -37,7 +37,7 @@ class Maps(object):
         params['language'] = language
       return self.GET(params=params)
 
-    def reverse(self, latitude, longitude, sensor=False,bounds=None, region=None, language=None):
+    def reverse(self, latitude, longitude, sensor=False, bounds=None, region=None, language=None):
       params = {
         'latlng' : '%s,%s' % (latitude, longitude),
         'sensor' : str(sensor).lower()
