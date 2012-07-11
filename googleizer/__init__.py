@@ -15,7 +15,7 @@ import hashlib
 import maps
 
 __author__ = 'beichhor'
-__version__ = "3.0.0"
+__version__ = "3.0.2"
 
 NUM_REQUEST_RETRIES = 3
 
@@ -143,7 +143,7 @@ class Requester(object):
         new_url = url_parsed.scheme + "://" + url_parsed.netloc + url_parsed.path + "?" + url_parsed.query + "&signature=" + encoded_signature
         return new_url
 
-    
+
 
 class Endpoint(object):
     """Generic endpoint class"""
