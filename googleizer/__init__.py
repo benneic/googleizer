@@ -21,7 +21,7 @@ except:
 import maps
 
 __author__ = 'beichhor'
-__version__ = "3.0.2"
+__version__ = "3.0.3"
 
 NUM_REQUEST_RETRIES = 3
 
