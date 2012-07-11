@@ -13,10 +13,10 @@ API_ENDPOINT = 'http://maps.googleapis.com/maps/api'
 class Maps(object):
   """Google Maps V3 Handler"""
 
-  def __init__(self, api_key=None, secret_key=None):
+  def __init__(self, api_key=None, secret_key=None, headers=None):
     """Sets up the api object"""
     # set up base requester
-    self._base_requester = Requester(API_ENDPOINT, api_key)
+    self._base_requester = Requester(API_ENDPOINT, api_key=api_key, secret_key=secret_key, headers=headers)
     # add each endpoint
     self.geocode = self.Geocode(self._base_requester)
 
