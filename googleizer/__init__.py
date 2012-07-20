@@ -21,7 +21,7 @@ except:
 import maps
 
 __author__ = 'beichhor'
-__version__ = "3.1.0"
+__version__ = "3.1.1"
 
 NUM_REQUEST_RETRIES = 3
 
@@ -132,7 +132,8 @@ class Requester(object):
             if exc is OK:
                 return data
             elif exc:
-                raise exc()
+                e = exc(body)
+                raise e
             else:
                 log.error(u'Unknown error occured: %s' % body)
                 raise GoogleizerException(body)
