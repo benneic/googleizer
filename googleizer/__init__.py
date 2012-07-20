@@ -21,7 +21,7 @@ except:
 import maps
 
 __author__ = 'beichhor'
-__version__ = "3.1.1"
+__version__ = "3.1.2"
 
 NUM_REQUEST_RETRIES = 3
 
@@ -132,11 +132,11 @@ class Requester(object):
             if exc is OK:
                 return data
             elif exc:
-                e = exc(body)
+                e = exc(json.dumps(data))
                 raise e
             else:
                 log.error(u'Unknown error occured: %s' % body)
-                raise GoogleizerException(body)
+                raise GoogleizerException(json.dumps(data))
         else:
             log.error(u'Response format invalid: %s' % body)
             raise GoogleizerException('Invlaid resonse format, got: %s' % body)
